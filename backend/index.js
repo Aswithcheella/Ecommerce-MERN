@@ -8,6 +8,16 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(express.json());
+//build path for frontend
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname, "../frontend/build");
+app.use(express.static(buildpath));
+
+//build path for admin
+const _admindirname = path.dirname("");
+const adminbuildpath = path.join(_admindirname, "../admin/dist");
+app.use(express.static(adminbuildpath));
+
 app.use(cors());
 
 //database connection with mongodb
